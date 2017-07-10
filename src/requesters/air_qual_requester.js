@@ -8,11 +8,17 @@ makeAirQualRequest = function (controller, bot, causeMessage, location) {
     request('http://api.waqi.info/feed/' + location + '/?token=' + apiKey, function(error, response, body){
 
         if (error != null) {
-            console.log("Request error: " + error);
-            postResponse(controller, bot, causeMessage, "Air Qual not available.");
+            postResponse(controller, bot, causeMessage, "Air quality report not available.");
         }
 
-        var airQualReport = JSON.parse(body);
-        postResponse(controller, bot, causeMessage, formatAirQual(airQualReport, location))
+        var airQualReport = JSON.parse(body)
+
+        if (airQualReport.status.toString().toLowerCase() == 'ok') {
+            postResponse(controller, bot, causeMessage, formatAirQual(airQualReport, location))
+        }
+        else {
+            postResponse(controller, bot, causeMessage, 'Unable to get air quality report for ' + location + '\n' +
+            'Reason: ' + airQualReport.data)
+        }
     });
 };
