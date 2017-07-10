@@ -1,0 +1,6 @@
+---
+applications:
+- name: airqual-bot
+  buildpack: https://github.com/cloudfoundry/nodejs-buildpack
+  memory: 512M
+  command: node src/airqual_bot.js
