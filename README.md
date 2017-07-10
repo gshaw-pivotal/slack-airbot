@@ -5,7 +5,7 @@ A slackbot that you can ask for the current air quality (based on a series of di
 ## Getting Started ##
 
 ```
-    git clone
+    git clone https://github.com/gshaw-pivotal/slack-airbot.git
 ```
 
 ## Integration with Slack ##
@@ -20,6 +20,26 @@ After the slackbot is running / deployed it will not have access to any channels
 
 ## Integration with AQICN ##
 
+This bot uses the [AQICN API](https://http://aqicn.org/json-api/doc/) to get weather data. In order for this bot to work you will need a AQICN Data Platform API token/key.
+
+Once you have said token/key, you will need to provide it to the bot as an environment variable named 'aqicnKey'.
+
+## Starting airbot Locally ##
+
+Airbot can be started locally with the following command executed from the root of this repo.
+
+```
+    aqicnKey=AQICN_API_TOKEN token=SLACK_API_TOKEN node src/airqual_bot.js
+```
+
 ## Using ##
+
+After being invited into a slack channel, the bot can be interacted with the following commands:
+
+1. '@airbot help' results in the bot responding with instructions on how to use it.
+2. '@airbot uptime' results in the bot responding with how long it has been online.
+3. '@airbot qual [location]' results in the bot responding with the latest air quality report for the provided location (based on AQICN's interpretation of said location).
+
+Only one location per message is supported, as the bot takes the location to be everything after the command (eg. after qual), hence the message '@airbot qual new york city' is interpreted to be a request for the air quality in New York City.
 
 ## Notes ##
