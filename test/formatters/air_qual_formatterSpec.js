@@ -77,37 +77,37 @@ describe("air quality formatter", function () {
        });
 
        it("returns an air quality report that contains the co (Carbon Monoxyde) level", function () {
-           expectation = 'The current Carbon Monoxyde (CO) level is: ' + airQualServiceData.data.iaqi.co.v + '\n';
+           expectation = 'The current Carbon Monoxyde (CO) level is: *' + airQualServiceData.data.iaqi.co.v + '*\n';
 
            expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
        });
 
        it("returns an air quality report that contains no2 (Nitrogen Dioxide) level", function () {
-           expectation = 'The current Nitrogen Dioxide (NO2) level is: ' + airQualServiceData.data.iaqi.no2.v + '\n';
+           expectation = 'The current Nitrogen Dioxide (NO2) level is: *' + airQualServiceData.data.iaqi.no2.v + '*\n';
 
            expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
        });
 
        it("returns an air quality report that contains so2 (Sulphur Dioxide) level", function () {
-           expectation = 'The current Sulphur Dioxide (SO2) level is: ' + airQualServiceData.data.iaqi.so2.v + '\n';
+           expectation = 'The current Sulphur Dioxide (SO2) level is: *' + airQualServiceData.data.iaqi.so2.v + '*\n';
 
            expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
        });
 
        it("returns an air quality report that contains o3 (Ozone) level", function () {
-           expectation = 'The current Ozone (O3) level is: ' + airQualServiceData.data.iaqi.o3.v + '\n';
+           expectation = 'The current Ozone (O3) level is: *' + airQualServiceData.data.iaqi.o3.v + '*\n';
 
            expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
        });
 
        it("returns an air quality report that contains pm25 (PM 2.5) level", function () {
-           expectation = 'The current Particulate Matter 2.5μm (PM25) level is: ' + airQualServiceData.data.iaqi.pm25.v + '\n';
+           expectation = 'The current Particulate Matter 2.5μm (PM25) level is: *' + airQualServiceData.data.iaqi.pm25.v + '*\n';
 
            expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
        });
 
        it("returns an air quality report that contains pm10 (PM 10) level", function () {
-           expectation = 'The current Particulate Matter 10μm (PM10) level is: ' + airQualServiceData.data.iaqi.pm10.v + '\n';
+           expectation = 'The current Particulate Matter 10μm (PM10) level is: *' + airQualServiceData.data.iaqi.pm10.v + '*\n';
 
            expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
        });
@@ -185,7 +185,7 @@ describe("air quality formatter", function () {
 
        describe("for a data point present in the response", function () {
            it("it returns an air quality report that contains a value for that data point", function () {
-               expectation = 'The current Particulate Matter 2.5μm (PM25) level is: ' + airQualServiceData.data.iaqi.pm25.v + '\n';
+               expectation = 'The current Particulate Matter 2.5μm (PM25) level is: *' + airQualServiceData.data.iaqi.pm25.v + '*\n';
 
                expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
            });
@@ -193,7 +193,7 @@ describe("air quality formatter", function () {
 
        describe("for a data point not present in the response", function () {
            it("it returns an air quality report that contains a not available for that data point", function () {
-               expectation = 'The current Particulate Matter 10μm (PM10) level is: N/A\n';
+               expectation = 'The current Particulate Matter 10μm (PM10) level is: *N/A*\n';
 
                expect(formatAirQual(airQualServiceData, location)).to.include(expectation);
            });
