@@ -32,7 +32,7 @@ Airbot can be started locally with the following command executed from the root 
     aqicnKey=AQICN_API_TOKEN token=SLACK_API_TOKEN node src/airqual_bot.js
 ```
 
-## Using ##
+## Using airbot ##
 
 After being invited into a slack channel, the bot can be interacted with the following commands:
 
@@ -43,3 +43,5 @@ After being invited into a slack channel, the bot can be interacted with the fol
 Only one location per message is supported, as the bot takes the location to be everything after the command (eg. after qual), hence the message '@airbot qual new york city' is interpreted to be a request for the air quality in New York City.
 
 ## Notes ##
+
+A manifest file is present to support deployments to cloudfoundry.
