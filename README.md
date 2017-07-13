@@ -38,9 +38,10 @@ After being invited into a slack channel, the bot can be interacted with the fol
 
 1. '@airbot help' results in the bot responding with instructions on how to use it.
 2. '@airbot uptime' results in the bot responding with how long it has been online.
-3. '@airbot qual [location]' results in the bot responding with the latest air quality report for the provided location (based on AQICN's interpretation of said location).
+3. '@airbot qual [location]' results in the bot responding with the latest air quality report for the provided location (based on AQICN's interpretation of said location). This is a 'rich' response that utilises Slack's attachment option and includes a color notification with each measure.
+4. '@airbot qual-text [location]' like the previous command, expect the response is a simpler plain text response with the latest air quality report for the provided location.
 
-Only one location per message is supported, as the bot takes the location to be everything after the command (eg. after qual), hence the message '@airbot qual new york city' is interpreted to be a request for the air quality in New York City.
+Only one location per message is supported, as the bot takes the location to be everything after the command (eg. after qual or qual-text), hence the message '@airbot qual new york city' is interpreted to be a request for the air quality in New York City.
 
 ## Notes ##
 
