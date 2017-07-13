@@ -39,7 +39,7 @@ buildQualityMeasurementAttachment = function (measureText, dataPoint) {
         text: measureText,
         fields: [
             {
-                title: dataPoint
+                title: dataPoint + ' - ' + determineQualityMeasureAdviceStatement(dataPoint)
             }
         ]
     };
