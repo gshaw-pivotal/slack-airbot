@@ -1,5 +1,3 @@
-var expect = require('chai').expect;
-
 require('../../src/formatters/air_qual_formatter');
 
 describe("air quality formatter", function () {
@@ -76,49 +74,49 @@ describe("air quality formatter", function () {
            it("returns an air quality report header that indicates the location requested by the user", function () {
                expectation = 'The current air quality in ' + location + ' is:\n';
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
 
            it("returns an air quality report that contains the co (Carbon Monoxyde) level", function () {
                expectation = 'The current Carbon Monoxyde (CO) level is: *' + airQualServiceData.data.iaqi.co.v + '*\n';
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
 
            it("returns an air quality report that contains no2 (Nitrogen Dioxide) level", function () {
                expectation = 'The current Nitrogen Dioxide (NO2) level is: *' + airQualServiceData.data.iaqi.no2.v + '*\n';
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
 
            it("returns an air quality report that contains so2 (Sulphur Dioxide) level", function () {
                expectation = 'The current Sulphur Dioxide (SO2) level is: *' + airQualServiceData.data.iaqi.so2.v + '*\n';
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
 
            it("returns an air quality report that contains o3 (Ozone) level", function () {
                expectation = 'The current Ozone (O3) level is: *' + airQualServiceData.data.iaqi.o3.v + '*\n';
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
 
            it("returns an air quality report that contains pm25 (PM 2.5) level", function () {
                expectation = 'The current Particulate Matter 2.5μm (PM25) level is: *' + airQualServiceData.data.iaqi.pm25.v + '*\n';
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
 
            it("returns an air quality report that contains pm10 (PM 10) level", function () {
                expectation = 'The current Particulate Matter 10μm (PM10) level is: *' + airQualServiceData.data.iaqi.pm10.v + '*\n';
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
 
            it("returns an air quality report that contains the time the data was generated at as a report footer", function () {
                expectation = 'Report generated at: ' + airQualServiceData.data.time.s;
 
-               expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+               expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
            });
        });
 
@@ -127,55 +125,55 @@ describe("air quality formatter", function () {
            it("returns an air quality report header that indicates the location requested by the user", function () {
                expectation = 'The current air quality in ' + location + ' is:';
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[0].pretext).to.include(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[0].pretext).toContain(expectation);
            });
 
            it("returns an air quality report that contains the co (Carbon Monoxyde) level", function () {
                expectation = 'The current Carbon Monoxyde (CO) level is:';
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[1].text).to.include(expectation);
-               expect(formatRichAirQual(airQualServiceData, location).attachments[1].fields[0].title).to.include(airQualServiceData.data.iaqi.co.v);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[1].text).toContain(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[1].fields[0].title).toContain(airQualServiceData.data.iaqi.co.v);
            });
 
            it("returns an air quality report that contains the no2 (Nitrogen Dioxide) level", function () {
                expectation = 'The current Nitrogen Dioxide (NO2) level is:';
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[2].text).to.include(expectation);
-               expect(formatRichAirQual(airQualServiceData, location).attachments[2].fields[0].title).to.include(airQualServiceData.data.iaqi.no2.v);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[2].text).toContain(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[2].fields[0].title).toContain(airQualServiceData.data.iaqi.no2.v);
            });
 
            it("returns an air quality report that contains the so2 (Sulphur Dioxide) level", function () {
                expectation = 'The current Sulphur Dioxide (SO2) level is:';
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[3].text).to.include(expectation);
-               expect(formatRichAirQual(airQualServiceData, location).attachments[3].fields[0].title).to.include(airQualServiceData.data.iaqi.so2.v);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[3].text).toContain(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[3].fields[0].title).toContain(airQualServiceData.data.iaqi.so2.v);
            });
 
            it("returns an air quality report that contains the o3 (Ozone) level", function () {
                expectation = 'The current Ozone (O3) level is:';
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[4].text).to.include(expectation);
-               expect(formatRichAirQual(airQualServiceData, location).attachments[4].fields[0].title).to.include(airQualServiceData.data.iaqi.o3.v);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[4].text).toContain(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[4].fields[0].title).toContain(airQualServiceData.data.iaqi.o3.v);
            });
 
            it("returns an air quality report that contains the pm25 (PM 2.5) level", function () {
                expectation = 'The current Particulate Matter 2.5μm (PM25) level is:';
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[5].text).to.include(expectation);
-               expect(formatRichAirQual(airQualServiceData, location).attachments[5].fields[0].title).to.include(airQualServiceData.data.iaqi.pm25.v);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[5].text).toContain(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[5].fields[0].title).toContain(airQualServiceData.data.iaqi.pm25.v);
            });
 
            it("returns an air quality report that contains the pm10 (PM 10) level", function () {
                expectation = 'The current Particulate Matter 10μm (PM10) level is:';
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[6].text).to.include(expectation);
-               expect(formatRichAirQual(airQualServiceData, location).attachments[6].fields[0].title).to.include(airQualServiceData.data.iaqi.pm10.v);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[6].text).toContain(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[6].fields[0].title).toContain(airQualServiceData.data.iaqi.pm10.v);
            });
 
            it("returns an air quality report that contains the time the data was generated at as a report footer", function () {
                expectation = 'Report generated at: ' + airQualServiceData.data.time.s;
 
-               expect(formatRichAirQual(airQualServiceData, location).attachments[7].text).to.include(expectation);
+               expect(formatRichAirQual(airQualServiceData, location).attachments[7].text).toContain(expectation);
            });
        });
    });
@@ -250,7 +248,7 @@ describe("air quality formatter", function () {
                it("it returns an air quality report that contains a value for that data point", function () {
                    expectation = 'The current Particulate Matter 2.5μm (PM25) level is: *' + airQualServiceData.data.iaqi.pm25.v + '*\n';
 
-                   expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+                   expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
                });
            });
 
@@ -258,7 +256,7 @@ describe("air quality formatter", function () {
                it("it returns an air quality report that contains a not available for that data point", function () {
                    expectation = 'The current Particulate Matter 10μm (PM10) level is: *N/A*\n';
 
-                   expect(formatTextAirQual(airQualServiceData, location)).to.include(expectation);
+                   expect(formatTextAirQual(airQualServiceData, location)).toContain(expectation);
                });
            });
        });
@@ -269,8 +267,8 @@ describe("air quality formatter", function () {
                it("it returns an air quality report that contains a value for that data point", function () {
                    expectation = 'The current Particulate Matter 2.5μm (PM25) level is:';
 
-                   expect(formatRichAirQual(airQualServiceData, location).attachments[5].text).to.include(expectation);
-                   expect(formatRichAirQual(airQualServiceData, location).attachments[5].fields[0].title).to.include(airQualServiceData.data.iaqi.pm25.v);
+                   expect(formatRichAirQual(airQualServiceData, location).attachments[5].text).toContain(expectation);
+                   expect(formatRichAirQual(airQualServiceData, location).attachments[5].fields[0].title).toContain(airQualServiceData.data.iaqi.pm25.v);
                });
            });
 
@@ -278,8 +276,8 @@ describe("air quality formatter", function () {
                it("it returns an air quality report that contains a not available for that data point", function () {
                    expectation = 'The current Particulate Matter 10μm (PM10) level is:';
 
-                   expect(formatRichAirQual(airQualServiceData, location).attachments[6].text).to.include(expectation);
-                   expect(formatRichAirQual(airQualServiceData, location).attachments[6].fields[0].title).to.include('N/A');
+                   expect(formatRichAirQual(airQualServiceData, location).attachments[6].text).toContain(expectation);
+                   expect(formatRichAirQual(airQualServiceData, location).attachments[6].fields[0].title).toContain('N/A');
                });
            });
        });
